@@ -15,9 +15,10 @@ mixer.init()
 is_playing = False
 
 ########################################################
-def current_time():
-    mixer.music.get_pos()
-    progressBar.configure(text=current_time)
+
+#def current_time():
+#    mixer.music.get_pos()
+#    progressBar.configure(text=current_time) # anything mentioning progressBar is currently not in use
 
 
 def play_sound():
@@ -29,8 +30,6 @@ def play_sound():
 
     else:
         play_status.configure(text="no file selected")
-    current_time()
-    progressBar.after(1000, current_time)
 
 
 def openfile():
@@ -112,16 +111,6 @@ play_status.grid(row = 2, column = 2)
 playButton = ctk.CTkButton(root, text="▶", width=10, command = play_sound, hover_color="#005c14", fg_color="#ffffff", text_color="#000000")
 
 playButton.grid(row = 3, column = 2, padx = 10)
-
-
-progBarTime = ctk.CTkLabel(root, text = current_time)
-
-progBarTime.grid(row=4, column=2, padx=10)
-
-
-progressBar = ctk.CTkProgressBar(root, orientation = "horizontal", width = 400, progress_color="#005c14")
-
-progressBar.grid(row = 5, column = 2, pady = 10)
 
 
 backButton = ctk.CTkButton(root, text="⏮", width=10, hover_color="#005c14", fg_color="#ffffff", text_color="#000000", command=back_button)
